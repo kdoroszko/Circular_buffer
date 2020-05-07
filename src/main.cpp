@@ -10,5 +10,8 @@ int main()
     test_buffer.push(3);
     test_buffer.show_elements();
 
+    test_buffer.clear();
+    test_buffer.show_elements();
+
     return 0;
 }

@@ -10,6 +10,8 @@ class Circular_buffer
 public:
     Circular_buffer(std::size_t new_size) : size_(new_size) {}
 
+    void clear() {buffer_.clear();}
+
     void push(const T new_element)
     {
         if(buffer_.size() < size_)
@@ -17,7 +19,7 @@ public:
         else std::cout << "Buffer is full! Can't add any new object!\n";
     }
 
-    void show_elements()
+    void show_elements() const
     {
         std::cout << "--- Elements in buffer ---\n";
 
@@ -25,7 +27,7 @@ public:
             std::cout << "\tBuffer is empty!\n\n";
         else
         {
-            for(auto elem: buffer_)
+            for(const auto &elem: buffer_)
                 std::cout << elem << '\n';
             std::cout << '\n';
         }
