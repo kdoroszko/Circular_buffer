@@ -2,7 +2,7 @@
 
 int main()
 {
-    Circular_buffer<int> test_buffer(10);
+    Circular_buffer<int, 10> test_buffer;
 
     test_buffer.show_elements();
     test_buffer.push(1);
