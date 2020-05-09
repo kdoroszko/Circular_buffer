@@ -31,6 +31,22 @@ public:
         }
     }
 
+    T take_element()
+    {
+        if(is_empty())
+            std::cout << "Buffer is empty! Can't read any object!\n\n";
+        else
+        {
+            T result = buffer_.at(read_position_++);
+            last_operation_was_read_ = true;
+
+            if(read_position_ == N)
+                read_position_ = 0;
+
+            return result;
+        }
+    }
+
     void show_elements() const
     {
         std::cout << "--- Elements in buffer ---\n";
@@ -38,17 +54,26 @@ public:
         if(is_empty())
             std::cout << "\tBuffer is empty!\n\n";
         else if(is_full())
-        {
-            for(const auto &elem: buffer_)
-                std::cout << elem << '\n';
-                std::cout << '\n';
-        }
-        else
-        {
-            for(std::size_t i = read_position_; i < write_position_; ++i)
-                std::cout << buffer_.at(i) << '\n';
-            std::cout << '\n';
-        }
+            {
+                for(const auto &elem: buffer_)
+                    std::cout << elem << '\n';
+                    std::cout << '\n';
+            }
+            else if(read_position_ < write_position_)
+                {
+                    for(std::size_t i = read_position_; i < write_position_; ++i)
+                        std::cout << buffer_.at(i) << '\n';
+                    std::cout << '\n';
+                }
+                else
+                {
+                    for(std::size_t i = read_position_; i < N; ++i)
+                        std::cout << buffer_.at(i) << '\n';
+                    for(std::size_t i = 0; i < write_position_; ++i)
+                        std::cout << buffer_.at(i) << '\n';
+                    std::cout << '\n';
+                }
+                
     }
 
 private:

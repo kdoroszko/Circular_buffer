@@ -13,5 +13,12 @@ int main()
     test_buffer.clear();
     test_buffer.show_elements();
 
+    test_buffer.take_element();
+    test_buffer.push(1);
+    test_buffer.push(2);
+    test_buffer.push(3);
+    std::cout << "Take first element from buffer: " << test_buffer.take_element() << "\n\n";
+    test_buffer.show_elements();
+
     return 0;
 }
