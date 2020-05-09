@@ -20,5 +20,7 @@ int main()
     std::cout << "Take first element from buffer: " << test_buffer.take_element() << "\n\n";
     test_buffer.show_elements();
 
+    std::cout << "Number of elements: " << test_buffer.size() << "\n\n";
+
     return 0;
 }

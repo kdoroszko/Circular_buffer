@@ -47,6 +47,17 @@ public:
         }
     }
 
+    const std::size_t size() const
+    {
+        if(is_empty())
+            return 0;
+        else if(is_full())
+                return N;
+            else if(read_position_ < write_position_)
+                    return write_position_ - read_position_;
+                else return (N - read_position_) + write_position_;
+    }
+
     void show_elements() const
     {
         std::cout << "--- Elements in buffer ---\n";
