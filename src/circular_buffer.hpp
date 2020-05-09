@@ -58,6 +58,8 @@ public:
                 else return (N - read_position_) + write_position_;
     }
 
+    const std::size_t max_size() const {return N;}
+
     void show_elements() const
     {
         std::cout << "--- Elements in buffer ---\n";

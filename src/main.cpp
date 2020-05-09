@@ -22,5 +22,7 @@ int main()
 
     std::cout << "Number of elements: " << test_buffer.size() << "\n\n";
 
+    std::cout << "Maximum number of elements in bufffer: " << test_buffer.max_size() << "\n\n";
+
     return 0;
 }
